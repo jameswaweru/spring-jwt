@@ -1,5 +1,6 @@
 package com.jameswaweru.jwt.entity;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -23,8 +24,8 @@ public class User {
     String userName;
     @Column(columnDefinition = "TEXT")
     String password;
-    @CreationTimestamp
+    @CreationTimestamp @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private ZonedDateTime createdAt;
-    @UpdateTimestamp
+    @UpdateTimestamp @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")
     private ZonedDateTime updatedAt;
 }
